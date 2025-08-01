@@ -7,7 +7,8 @@ from langchain.chains import RetrievalQA
 from langchain.prompts import PromptTemplate
 
 # Configuration de l'API (remplace par st.secrets ou os.environ en production)
-GROQ_API_KEY = "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"
+import os
+GROQ_API_KEY = st.secrets["GROQ_API_KEY"]
 
 # Prompt personnalisé
 CUSTOM_PROMPT = PromptTemplate(
