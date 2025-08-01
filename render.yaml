@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: chatbot-aivancity
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run app.py --server.port=$PORT --server.address=0.0.0.0
+    envVars:
+      - key: GROQ_API_KEY
+        value: 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

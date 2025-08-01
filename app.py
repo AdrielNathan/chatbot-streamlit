@@ -13,8 +13,9 @@ embedding_model = HuggingFaceEmbeddings(model_name="BAAI/bge-m3")
 vectorstore = Chroma(persist_directory="chroma_store", embedding_function=embedding_model)
 retriever = vectorstore.as_retriever(search_type="similarity", search_kwargs={"k": 3})
 
-# Clé API Groq (⚠️ stockée en dur)
-GROQ_API_KEY = "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"
+import os
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+
 
 # Chargement du LLM
 llm = ChatGroq(model="llama3-8b-8192", api_key=GROQ_API_KEY)
